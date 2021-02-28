@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Travelblog } from '../travelblog';
+import { TravelblogService } from '../travelblog.service';
 
 @Component({
   selector: 'app-travelblogs',
@@ -12,23 +13,18 @@ export class TravelblogsComponent implements OnInit {
   dataSource: Travelblog[];
   columnsToDisplay: string[] = [ 'title', 'destination', 'traveltime' ];
 
-  constructor(private router: Router) {
-  }
+
+  constructor(private router: Router, private travelblogService: TravelblogService) {}
 
   ngOnInit(): void {
-    this.createTable();
+    this.getTravelblogs();
   }
 
-  createTable() {
-    let blog1 = new Travelblog('Titel1', 'Destination1', 1, 'Abstract1');
-    blog1.id = '1';
-    let blog2 = new Travelblog('Titel2', 'Destination2', 2, 'Abstract2');
-    blog2.id = '2';
-
-    this.dataSource = [ blog1, blog2 ];
+  getTravelblogs() {
+    this.travelblogService.getAll().subscribe(blogs => this.dataSource = blogs);
   }
 
   navigate(blog: Travelblog) {
-    this.router.navigate([`/travelblog/${blog.id}`])
+    this.router.navigate([`/travelblog/${blog._id}`])
   }
 }

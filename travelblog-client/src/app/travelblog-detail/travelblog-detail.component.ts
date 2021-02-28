@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Travelblog } from '../travelblog';
+import { TravelblogService } from '../travelblog.service';
 
 @Component({
   selector: 'app-travelblog-detail',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TravelblogDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private travelblogService: TravelblogService) { }
+
+  blog: Travelblog;
 
   ngOnInit(): void {
+    this.getTravelblogs();
   }
 
+  getTravelblogs() {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.travelblogService.get(id).subscribe(blog => this.blog = blog);
+    }
+  }
 }
