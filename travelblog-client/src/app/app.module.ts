@@ -7,6 +7,7 @@ import { TravelblogsComponent } from './travelblogs/travelblogs.component';
 import { TravelblogDetailComponent } from './travelblog-detail/travelblog-detail.component';
 import { MyBlogsComponent } from './my-blogs/my-blogs.component';
 import { LoginComponent } from './login/login.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
