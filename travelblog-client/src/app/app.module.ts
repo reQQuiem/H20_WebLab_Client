@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TravelblogsComponent } from './travelblogs/travelblogs.component';
 import { TravelblogDetailComponent } from './travelblog-detail/travelblog-detail.component';
+import { BlogentryDetailComponent } from './blogentry-detail/blogentry-detail.component';
 import { MyBlogsComponent } from './my-blogs/my-blogs.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,7 +18,9 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
-import { BlogentryComponent } from './blogentry/blogentry.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 
 @NgModule({
@@ -27,7 +30,8 @@ import { BlogentryComponent } from './blogentry/blogentry.component';
     TravelblogDetailComponent,
     MyBlogsComponent,
     LoginComponent,
-    BlogentryComponent,
+    BlogentryDetailComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +44,8 @@ import { BlogentryComponent } from './blogentry/blogentry.component';
     MatSelectModule,
     BrowserAnimationsModule,
     FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

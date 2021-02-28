@@ -1,14 +1,13 @@
 export class BlogEntry {
 
-    id?: string;
+    id: string;
     title: string;
     date: Date;
-    location?: string;
+    location: string;
     text: string;
 
-    constructor(title: string, date: Date, text: string) {
+    constructor(title: string, date: Date) {
         this.title = title;
         this.date = date;
-        this.text = text;
     }
 }

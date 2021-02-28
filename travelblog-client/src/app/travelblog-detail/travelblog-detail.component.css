@@ -1,0 +1,17 @@
+textarea {
+    height: 120px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.main {
+    width: 74%;
+}
+
+.date {
+    width: 24%;
+}

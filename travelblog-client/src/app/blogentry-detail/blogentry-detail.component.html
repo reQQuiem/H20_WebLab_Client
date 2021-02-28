@@ -1,0 +1,10 @@
+<p>blogentry-detail works!</p>
+
+<div *ngIf="entry">
+
+    <mat-form-field appearance="fill">
+        <mat-label>Titel</mat-label>
+        <input matInput [(ngModel)]="entry.title" required/>
+    </mat-form-field>
+
+</div>

@@ -13,6 +13,7 @@ export class TravelblogDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private travelblogService: TravelblogService) { }
 
   blog: Travelblog;
+  width: number = 400;
 
   ngOnInit(): void {
     this.getTravelblogs();
