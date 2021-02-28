@@ -3,10 +3,6 @@ table {
     margin: auto;
     background-color: white;
 }
-.mat-cell {
-    color: black;
-}
-
 
 th {
     border-bottom: 1px solid black;
@@ -17,13 +13,13 @@ th {
 }
 
 .mat-column-title {
-    color: black;
+    border-bottom-style: inset;
 }
 .mat-column-destination {
-    color: black;
+    border-bottom-style: inset;
     width: 20%
 }
 .mat-column-traveltime {
-    color: black;
+    border-bottom-style: inset;
     width: 15%;
 }
