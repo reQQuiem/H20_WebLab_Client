@@ -1,0 +1,29 @@
+table {
+    width: 100%;
+    margin: auto;
+    background-color: white;
+}
+.mat-cell {
+    color: black;
+}
+
+
+th {
+    border-bottom: 1px solid black;
+}
+
+.mat-row:hover {
+    background-color: lightskyblue;
+}
+
+.mat-column-title {
+    color: black;
+}
+.mat-column-destination {
+    color: black;
+    width: 20%
+}
+.mat-column-traveltime {
+    color: black;
+    width: 15%;
+}

@@ -2,6 +2,7 @@ import { BlogEntry } from "./blog-entry";
 
 export class Travelblog {
 
+    id: string;
     title: string;
     destination: string;
     traveltime: number; // days

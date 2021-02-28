@@ -1,1 +1,21 @@
-<p>travelblogs works!</p>
+<table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>Blog</th>
+        <td mat-cell *matCellDef="let blog">{{ blog.title }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="destination">
+        <th mat-header-cell *matHeaderCellDef>Reiseziel</th>
+        <td mat-cell *matCellDef="let blog">{{ blog.destination }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="traveltime">
+        <th mat-header-cell *matHeaderCellDef>Reisezeit</th>
+        <td mat-cell *matCellDef="let blog">{{ blog.traveltime }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnsToDisplay" (click)="navigate(row)"></tr>
+
+</table>
