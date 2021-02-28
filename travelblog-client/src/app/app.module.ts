@@ -7,7 +7,7 @@ import { TravelblogsComponent } from './travelblogs/travelblogs.component';
 import { TravelblogDetailComponent } from './travelblog-detail/travelblog-detail.component';
 import { MyBlogsComponent } from './my-blogs/my-blogs.component';
 import { LoginComponent } from './login/login.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -15,6 +15,10 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatTableModule } from '@angular/material/table'  
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { BlogentryComponent } from './blogentry/blogentry.component';
+
 
 @NgModule({
   declarations: [
@@ -23,16 +27,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     TravelblogDetailComponent,
     MyBlogsComponent,
     LoginComponent,
+    BlogentryComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NoopAnimationsModule,
     MatButtonModule,
     MatTableModule,
     MatFormFieldModule,
-    FormsModule
+    MatInputModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
