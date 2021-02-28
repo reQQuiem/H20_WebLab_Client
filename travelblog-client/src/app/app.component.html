@@ -1,9 +1,21 @@
+<div class="header">
+  <div class="content">
+    <div class="title">
+      <h1>Travelblogs</h1>
+    </div>
+    <nav>
+      <a mat-stroked-button routerLink="travelblogs">Travelblogs</a>
+      <a mat-stroked-button routerLink="my-blogs">Meine Blogs</a>
+      <a mat-stroked-button routerLink="travelblog/0">Neuer Blog</a>
+      <a mat-stroked-button routerLink="login">Login</a>
+    </nav>
+  </div>
+</div>
 
-<h1>Travelblogs</h1>
-<nav>
-  <a routerLink="travelblogs">Travelblogs</a>
-  <a routerLink="my-blogs">Meine Blogs</a>
-  <a routerLink="travelblog/0">Neuer Blog</a>
-  <a routerLink="login">Login</a>
-</nav>
-<router-outlet></router-outlet>
+<br>
+
+<div class="content">
+  <div class="non-button">
+    <router-outlet></router-outlet>
+  </div>
+</div>

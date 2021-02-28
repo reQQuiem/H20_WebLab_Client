@@ -1,0 +1,31 @@
+.header {
+    background-color: lightskyblue;
+}
+
+.header .content {
+    background-color: transparent;
+}
+
+.content {
+    max-width: 1000px;
+    margin: auto;
+    background-color: white;
+}
+
+.title {
+    padding: 5px;
+    padding-bottom: 0px;
+}
+
+.non-button {
+    padding: 15px;
+}
+
+/* TODO: Change appearance for currently selected */
+.mat-stroked-button {
+    border: none;
+}
+
+nav {
+    padding-bottom: 8px;
+}
