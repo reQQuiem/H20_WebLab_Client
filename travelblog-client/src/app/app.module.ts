@@ -21,6 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     LoginComponent,
     BlogentryDetailComponent,
     PagenotfoundComponent,
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
