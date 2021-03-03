@@ -1,18 +1,21 @@
-<form [formGroup]="form">
-    <fieldset>
+<fieldset>
+    <form [formGroup]="form">
         <legend>Login</legend>
-        <div class="form-field">
-            <label>Name:</label>
-            <input name="name" formControlName="name">
+
+        <mat-form-field class="main" appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput name="name" formControlName="name" required/>
+        </mat-form-field>
+
+        <mat-form-field class="main" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput name="password" formControlName="password" type="password" required/>
+        </mat-form-field>
+
+        <div class="form-buttons">
+            <button mat-raised-button color="primary"
+                    (click)="login()">Login
+            </button>
         </div>
-        <div class="form-field">
-            <label>Password:</label>
-            <input name="password" formControlName="password"
-                   type="password">
-        </div>
-    </fieldset>
-    <div class="form-buttons">
-        <button class="button button-primary"
-                (click)="login()">Login</button>
-    </div>
-</form>
+    </form>
+</fieldset>

@@ -32,7 +32,7 @@ export class AuthService {
     localStorage.removeItem("expires_at");
   }
 
-  public isLoggedIn() {
+  public isLoggedIn(): boolean {
     return moment().isBefore(this.getExpiration());
   }
 

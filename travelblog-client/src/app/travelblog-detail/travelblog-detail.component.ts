@@ -22,7 +22,7 @@ export class TravelblogDetailComponent implements OnInit {
   getTravelblogs() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      this.travelblogService.get(id).subscribe(blog => this.blog = blog);
+      this.travelblogService.get(id).subscribe(blog => { this.blog = blog; console.log(this.blog); } );
     }
   }
 }
