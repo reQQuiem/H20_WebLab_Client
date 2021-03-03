@@ -5,8 +5,8 @@
     </div>
     <nav>
       <a mat-stroked-button routerLink="travelblogs">Travelblogs</a>
-      <a mat-stroked-button routerLink="my-blogs">Meine Blogs</a>
-      <a mat-stroked-button routerLink="travelblog/0">Neuer Blog</a>
+      <a mat-stroked-button routerLink="my-blogs" *ngIf="isLoggedIn">Meine Blogs</a>
+      <a mat-stroked-button routerLink="travelblog/0" *ngIf="isLoggedIn">Neuer Blog</a>
       <a mat-stroked-button routerLink="login" *ngIf="!isLoggedIn">Login</a>
       <a mat-stroked-button (click)="loginOut()" *ngIf="isLoggedIn">Logout</a>
     </nav>
