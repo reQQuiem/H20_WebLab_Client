@@ -10,7 +10,10 @@ import {shareReplay} from "rxjs/operators";
 })
 export class AuthService {
 
-  private baseURL: string = 'http://localhost:5555'
+  private expiration = 'expires_at';
+  private access = 'accessToken';
+
+  private baseURL: string = 'http://localhost:5555';
 
   constructor(private http: HttpClient) {
   }
@@ -23,13 +26,13 @@ export class AuthService {
 
   private setSession(authResult: any) {
     const expiresAt = moment.unix(authResult.expiresAt);
-    localStorage.setItem('accessToken', authResult.accessToken);
-    localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
+    localStorage.setItem(this.access, authResult.accessToken);
+    localStorage.setItem(this.expiration, JSON.stringify(expiresAt.valueOf()) );
   }
 
   logout() {
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("expires_at");
+    localStorage.removeItem(this.access);
+    localStorage.removeItem(this.expiration);
   }
 
   public isLoggedIn(): boolean {
@@ -41,7 +44,7 @@ export class AuthService {
   }
 
   getExpiration() {
-    const expiration = localStorage.getItem("expires_at");
+    const expiration = localStorage.getItem(this.expiration);
     let expiresAt = null;
     if (expiration != null) {
       expiresAt = JSON.parse(expiration);
