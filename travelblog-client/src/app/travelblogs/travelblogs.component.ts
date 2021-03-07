@@ -11,7 +11,7 @@ import { TravelblogService } from '../travelblog.service';
 export class TravelblogsComponent implements OnInit {
 
   dataSource: Travelblog[];
-  columnsToDisplay: string[] = [ 'title', 'destination', 'traveltime' ];
+  columnsToDisplay: string[] = [ 'title', 'destination', 'departure', 'arrival' ];
 
 
   constructor(private router: Router, private travelblogService: TravelblogService) {}

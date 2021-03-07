@@ -19,7 +19,11 @@ th {
     border-bottom-style: inset;
     width: 20%
 }
-.mat-column-traveltime {
+.mat-column-departure {
+    border-bottom-style: inset;
+    width: 15%;
+}
+.mat-column-arrival {
     border-bottom-style: inset;
     width: 15%;
 }
