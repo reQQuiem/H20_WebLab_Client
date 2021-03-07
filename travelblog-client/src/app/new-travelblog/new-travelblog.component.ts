@@ -10,11 +10,9 @@ import { TravelblogService } from '../travelblog.service';
 })
 export class NewTravelblogComponent implements OnInit {
 
-  constructor(private router: Router, private travelblogService: TravelblogService) {
-  }
+  constructor(private router: Router, private travelblogService: TravelblogService) {}
 
   ngOnInit(): void {
     this.travelblogService.create(new Travelblog()).subscribe(x => this.router.navigate([`/travelblog/${x._id}`]));
   }
-
 }
