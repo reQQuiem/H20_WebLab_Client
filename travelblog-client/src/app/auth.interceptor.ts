@@ -6,6 +6,8 @@ import {catchError, retry} from "rxjs/operators";
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
+    retryCount: number = 0;
+
     intercept(req: HttpRequest<any>,
               next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -17,38 +19,38 @@ export class AuthInterceptor implements HttpInterceptor {
                     "Bearer " + accessToken)
             });
             return next.handle(cloned)
-                .pipe(
-                    retry(3),
-                    catchError((error: HttpErrorResponse) => {
-                        let errorMessage = '';
-                        if (error.error instanceof ErrorEvent) {
-                            // client-side error
-                            errorMessage = `Error: ${error.error.message}`;
-                        } else {
-                            // server-side error
-                            errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-                        }
-                        window.alert(errorMessage);
-                        return throwError(errorMessage);
-                    })
-                )
+                // .pipe(
+                //     retry(this.retryCount),
+                //     catchError((error: HttpErrorResponse) => {
+                //         let errorMessage = '';
+                //         if (error.error instanceof ErrorEvent) {
+                //             // client-side error
+                //             errorMessage = `Error: ${error.error.message}`;
+                //         } else {
+                //             // server-side error
+                //             errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+                //         }
+                //         window.alert(errorMessage);
+                //         return throwError(errorMessage);
+                //     })
+                // )
         } else {
             return next.handle(req)
-                .pipe(
-                    retry(3),
-                    catchError((error: HttpErrorResponse) => {
-                        let errorMessage = '';
-                        if (error.error instanceof ErrorEvent) {
-                            // client-side error
-                            errorMessage = `Error: ${error.error.message}`;
-                        } else {
-                            // server-side error
-                            errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-                        }
-                        window.alert(errorMessage);
-                        return throwError(errorMessage);
-                    })
-                )
+                // .pipe(
+                //     retry(this.retryCount),
+                //     catchError((error: HttpErrorResponse) => {
+                //         let errorMessage = '';
+                //         if (error.error instanceof ErrorEvent) {
+                //             // client-side error
+                //             errorMessage = `Error: ${error.error.message}`;
+                //         } else {
+                //             // server-side error
+                //             errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+                //         }
+                //         window.alert(errorMessage);
+                //         return throwError(errorMessage);
+                //     })
+                // )
         }
     }
 }

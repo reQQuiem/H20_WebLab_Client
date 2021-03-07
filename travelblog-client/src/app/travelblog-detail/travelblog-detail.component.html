@@ -1,36 +1,71 @@
 <h2>Travelblog</h2>
 
-<div class="row">
-    <mat-form-field class="main" appearance="fill">
-        <mat-label>Titel</mat-label>
-        <input matInput [(ngModel)]="blog.title" required/>
+<div *ngIf="blog">
+    <div class="row">
+        <mat-form-field class="main" appearance="fill">
+            <mat-label>Titel</mat-label>
+            <input matInput [(ngModel)]="blog.title" required/>
+        </mat-form-field>
+
+        <mat-form-field class="date" appearance="fill">
+            <mat-label>Abreise</mat-label>
+            <input matInput [matDatepicker]="pickerDeparture" [(ngModel)]="blog.departure">
+            <mat-datepicker-toggle matSuffix [for]="pickerDeparture"></mat-datepicker-toggle>
+            <mat-datepicker #pickerDeparture></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field class="main" appearance="fill">
+            <mat-label>Destination</mat-label>
+            <input matInput [(ngModel)]="blog.destination" required/>
+        </mat-form-field>
+
+        <mat-form-field class="date" appearance="fill">
+            <mat-label>Ankunft</mat-label>
+            <input matInput [matDatepicker]="pickerArrival" [(ngModel)]="blog.arrival">
+            <mat-datepicker-toggle matSuffix [for]="pickerArrival"></mat-datepicker-toggle>
+            <mat-datepicker #pickerArrival></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+    <mat-form-field style="width: 100%" appearance="fill">
+        <mat-label>Kurzbeschreibung</mat-label>
+        <textarea matInput [(ngModel)]="blog.abstract"></textarea>
     </mat-form-field>
 
-    <mat-form-field class="date" appearance="fill">
-        <mat-label>Abreise</mat-label>
-        <input matInput [matDatepicker]="pickerDeparture" [(ngModel)]="blog.departure">
-        <mat-datepicker-toggle matSuffix [for]="pickerDeparture"></mat-datepicker-toggle>
-        <mat-datepicker #pickerDeparture></mat-datepicker>
-    </mat-form-field>
+    <!-- BlogEntries -->
+    <!-- TODO: Auslagern in eigene Component -->
+    <div *ngFor="let entry of blog.entries">
+        <h3>{{entry.location}}</h3>
+
+        <div class="row">
+            <mat-form-field class="main" appearance="fill">
+                <mat-label>Titel</mat-label>
+                <input matInput [(ngModel)]="entry.title" required/>
+            </mat-form-field>
+
+            <mat-form-field class="date" appearance="fill">
+                <mat-label>Datum</mat-label>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="entry.date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <mat-form-field style="width: 100%" appearance="fill">
+            <mat-label>Beschreibung</mat-label>
+            <textarea matInput [(ngModel)]="entry.text"></textarea>
+        </mat-form-field>
+    </div>
+    
+    <!-- Buttons -->
+    <div class="row">
+        <div></div>
+        <div class="button-row">
+            <button mat-raised-button class="button" color="primary" (click)="save()">Speichern</button>
+            <button mat-raised-button class="button" color="primary" (click)="delete()">Löschen</button>
+        </div>
+    </div>
+
 </div>
-
-<div class="row">
-    <mat-form-field class="main" appearance="fill">
-        <mat-label>Destination</mat-label>
-        <input matInput [(ngModel)]="blog.destination" required/>
-    </mat-form-field>
-
-    <mat-form-field class="date" appearance="fill">
-        <mat-label>Ankunft</mat-label>
-        <input matInput [matDatepicker]="pickerArrival" [(ngModel)]="blog.arrival">
-        <mat-datepicker-toggle matSuffix [for]="pickerArrival"></mat-datepicker-toggle>
-        <mat-datepicker #pickerArrival></mat-datepicker>
-    </mat-form-field>
-</div>
-
-<mat-form-field style="width: 100%" appearance="fill">
-    <mat-label>Kurzbeschreibung</mat-label>
-    <textarea matInput [(ngModel)]="blog.abstract"></textarea>
-</mat-form-field>
-
-<app-blogentry-detail></app-blogentry-detail>

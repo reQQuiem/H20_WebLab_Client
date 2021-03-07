@@ -37,7 +37,7 @@ export class TravelblogService {
 
   update(blog: Travelblog) {
     const url = `${this.baseURL}/travelblog`;
-    return this.http.post<Travelblog>(url, blog);
+    return this.http.put<Travelblog>(url, blog);
   }
 
   delete(id: string) {

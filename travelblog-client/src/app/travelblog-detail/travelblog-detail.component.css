@@ -1,5 +1,5 @@
 textarea {
-    height: 120px;
+    height: 64px;
 }
 
 .row {
@@ -14,4 +14,9 @@ textarea {
 
 .date {
     width: 24%;
+}
+
+.button {
+    margin-left: 12px;
+    text-align: right;
 }
