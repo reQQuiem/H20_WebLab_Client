@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TravelblogsComponent } from './travelblogs/travelblogs.component';
 import { TravelblogDetailComponent } from './travelblog-detail/travelblog-detail.component';
-import { BlogentryDetailComponent } from './blogentry-detail/blogentry-detail.component';
 import { MyBlogsComponent } from './my-blogs/my-blogs.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,7 +13,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { MatButtonModule } from '@angular/material/button'  
 import { MatTableModule } from '@angular/material/table'  
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
@@ -32,7 +31,6 @@ import {AuthInterceptor} from "./auth.interceptor";
     TravelblogDetailComponent,
     MyBlogsComponent,
     LoginComponent,
-    BlogentryDetailComponent,
     PagenotfoundComponent,
     WelcomeComponent,
   ],
