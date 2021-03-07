@@ -11,6 +11,7 @@ import {shareReplay} from "rxjs/operators";
 export class AuthService {
 
   private expiration = 'expires_at';
+  private name = 'name';
   private access = 'accessToken';
 
   private baseURL: string = 'http://localhost:5555';
@@ -27,11 +28,13 @@ export class AuthService {
   private setSession(authResult: any) {
     const expiresAt = moment.unix(authResult.expiresAt);
     localStorage.setItem(this.access, authResult.accessToken);
+    localStorage.setItem(this.name, authResult.name);
     localStorage.setItem(this.expiration, JSON.stringify(expiresAt.valueOf()) );
   }
 
   logout() {
     localStorage.removeItem(this.access);
+    localStorage.removeItem(this.name);
     localStorage.removeItem(this.expiration);
   }
 
