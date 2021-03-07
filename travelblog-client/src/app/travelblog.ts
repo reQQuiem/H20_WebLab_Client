@@ -10,8 +10,7 @@ export class Travelblog {
     abstract: string;
     entries: BlogEntry[];
 
-    constructor(title: string, entries: BlogEntry[] = []) {
-        this.title = title;
+    constructor(entries: BlogEntry[] = []) {
         this.entries = entries;
     }
 }

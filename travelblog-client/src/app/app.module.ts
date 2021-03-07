@@ -22,6 +22,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import {AuthInterceptor} from "./auth.interceptor";
+import { NewTravelblogComponent } from './new-travelblog/new-travelblog.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import {AuthInterceptor} from "./auth.interceptor";
     LoginComponent,
     PagenotfoundComponent,
     WelcomeComponent,
+    NewTravelblogComponent,
   ],
     imports: [
         BrowserModule,
