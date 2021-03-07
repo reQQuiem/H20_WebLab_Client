@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Travelblog } from '../travelblog';
 import { TravelblogService } from '../travelblog.service';
@@ -14,7 +14,9 @@ export class TravelblogsComponent implements OnInit {
   columnsToDisplay: string[] = [ 'title', 'destination', 'departure', 'arrival' ];
 
 
-  constructor(private router: Router, private route: ActivatedRoute, private travelblogService: TravelblogService) {}
+  constructor(private router: Router, private route: ActivatedRoute, private travelblogService: TravelblogService) {
+    route.queryParams.subscribe(_ => this.getTravelblogs());
+  }
 
   ngOnInit(): void {
     this.getTravelblogs();
