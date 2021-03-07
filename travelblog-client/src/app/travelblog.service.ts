@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
 import { Travelblog } from './travelblog';
 
+//TODO: Fehlerhandling
 @Injectable({
   providedIn: 'root'
 })
@@ -18,23 +20,28 @@ export class TravelblogService {
   constructor(private http: HttpClient) {
   }
 
-  create(blog: Travelblog): string {
-    return ''
+  create(blog: Travelblog): Observable<Travelblog>  {
+    const url = `${this.baseURL}/travelblog`;
+    return this.http.post<Travelblog>(url, blog);
   }
 
   getAll(): Observable<Travelblog[]> {
-    return this.http.get<Travelblog[]>(this.baseURL + '/travelblogs')
+    const url = `${this.baseURL}/travelblogs`;
+    return this.http.get<Travelblog[]>(url);
   }
 
   get(id: string): Observable<Travelblog> {
-    return this.http.get<Travelblog>(this.baseURL + '/travelblog/' + id);
+    const url = `${this.baseURL}/travelblog/${id}`;
+    return this.http.get<Travelblog>(url);
   }
 
   update(blog: Travelblog) {
-
+    const url = `${this.baseURL}/travelblog`;
+    return this.http.post<Travelblog>(url, blog);
   }
 
   delete(id: string) {
-
+    const url = `${this.baseURL}/travelblog/${id}`;
+    return this.http.delete<Travelblog>(url);
   }
 }

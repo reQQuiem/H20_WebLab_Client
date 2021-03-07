@@ -1,6 +1,7 @@
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
+import {Observable, throwError} from "rxjs";
 import {Injectable} from "@angular/core";
+import {catchError, retry} from "rxjs/operators";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -15,10 +16,39 @@ export class AuthInterceptor implements HttpInterceptor {
                 headers: req.headers.set("Authorization",
                     "Bearer " + accessToken)
             });
-            return next.handle(cloned);
-        }
-        else {
-            return next.handle(req);
+            return next.handle(cloned)
+                .pipe(
+                    retry(3),
+                    catchError((error: HttpErrorResponse) => {
+                        let errorMessage = '';
+                        if (error.error instanceof ErrorEvent) {
+                            // client-side error
+                            errorMessage = `Error: ${error.error.message}`;
+                        } else {
+                            // server-side error
+                            errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+                        }
+                        window.alert(errorMessage);
+                        return throwError(errorMessage);
+                    })
+                )
+        } else {
+            return next.handle(req)
+                .pipe(
+                    retry(3),
+                    catchError((error: HttpErrorResponse) => {
+                        let errorMessage = '';
+                        if (error.error instanceof ErrorEvent) {
+                            // client-side error
+                            errorMessage = `Error: ${error.error.message}`;
+                        } else {
+                            // server-side error
+                            errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+                        }
+                        window.alert(errorMessage);
+                        return throwError(errorMessage);
+                    })
+                )
         }
     }
 }
