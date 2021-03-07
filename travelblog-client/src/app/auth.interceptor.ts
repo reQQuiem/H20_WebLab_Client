@@ -18,38 +18,8 @@ export class AuthInterceptor implements HttpInterceptor {
                     "Bearer " + accessToken)
             });
             return next.handle(cloned)
-                // .pipe(
-                //     retry(this.retryCount),
-                //     catchError((error: HttpErrorResponse) => {
-                //         let errorMessage = '';
-                //         if (error.error instanceof ErrorEvent) {
-                //             // client-side error
-                //             errorMessage = `Error: ${error.error.message}`;
-                //         } else {
-                //             // server-side error
-                //             errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-                //         }
-                //         window.alert(errorMessage);
-                //         return throwError(errorMessage);
-                //     })
-                // )
         } else {
             return next.handle(req)
-                // .pipe(
-                //     retry(this.retryCount),
-                //     catchError((error: HttpErrorResponse) => {
-                //         let errorMessage = '';
-                //         if (error.error instanceof ErrorEvent) {
-                //             // client-side error
-                //             errorMessage = `Error: ${error.error.message}`;
-                //         } else {
-                //             // server-side error
-                //             errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-                //         }
-                //         window.alert(errorMessage);
-                //         return throwError(errorMessage);
-                //     })
-                // )
         }
     }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { Travelblog } from '../travelblog';
 import { TravelblogService } from '../travelblog.service';
 
@@ -14,14 +14,15 @@ export class TravelblogsComponent implements OnInit {
   columnsToDisplay: string[] = [ 'title', 'destination', 'departure', 'arrival' ];
 
 
-  constructor(private router: Router, private travelblogService: TravelblogService) {}
+  constructor(private router: Router, private route: ActivatedRoute, private travelblogService: TravelblogService) {}
 
   ngOnInit(): void {
     this.getTravelblogs();
   }
 
   getTravelblogs() {
-    this.travelblogService.getAll().subscribe(blogs => this.dataSource = blogs);
+    const queryParams = this.route.snapshot.queryParams;
+    this.travelblogService.getAll(queryParams).subscribe(blogs => this.dataSource = blogs);
   }
 
   navigate(blog: Travelblog) {
