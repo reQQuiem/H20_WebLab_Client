@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BlogEntry } from '../blog-entry';
 import { Travelblog } from '../travelblog';
 import { TravelblogService } from '../travelblog.service';
 
@@ -24,6 +25,14 @@ export class TravelblogDetailComponent implements OnInit {
     if (id) {
       this.travelblogService.get(id).subscribe(blog => { this.blog = blog });
     }
+  }
+
+  addBlogEntry() {
+    this.blog.entries.push(new BlogEntry())
+  }
+
+  deleteBlogEntry(name: string) {
+    // TODO: deleteBlogEntry()
   }
 
   save() {

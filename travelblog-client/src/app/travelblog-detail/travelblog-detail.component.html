@@ -34,15 +34,22 @@
         <textarea matInput [(ngModel)]="blog.abstract"></textarea>
     </mat-form-field>
 
+    <br><br>
     <!-- BlogEntries -->
-    <!-- TODO: Auslagern in eigene Component -->
-    <div *ngFor="let entry of blog.entries">
-        <h3>{{entry.location}}</h3>
+    <!-- TODO: Auslagern in eigene Component & DateTime Format -->
+    <div style="margin-top: 12px" *ngFor="let entry of blog.entries">
+
+        <div class="row">
+            <mat-form-field class="title">
+                <mat-label>Titel</mat-label>
+                <input matInput [(ngModel)]="entry.title" required/>
+            </mat-form-field>
+        </div>
 
         <div class="row">
             <mat-form-field class="main" appearance="fill">
-                <mat-label>Titel</mat-label>
-                <input matInput [(ngModel)]="entry.title" required/>
+                <mat-label>Ort</mat-label>
+                <input matInput [(ngModel)]="entry.location" required/>
             </mat-form-field>
 
             <mat-form-field class="date" appearance="fill">
@@ -61,7 +68,9 @@
     
     <!-- Buttons -->
     <div class="row">
-        <div></div>
+        <div>
+            <button mat-raised-button color="primary" (click)="addBlogEntry()">Blog-Eintrag hinzufügen</button>
+        </div>
         <div class="button-row">
             <button mat-raised-button class="button" color="primary" (click)="save()">Speichern</button>
             <button mat-raised-button class="button" color="primary" (click)="delete()">Löschen</button>

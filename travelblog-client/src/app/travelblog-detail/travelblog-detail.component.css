@@ -16,6 +16,11 @@ textarea {
     width: 24%;
 }
 
+.title {
+    width: 100%;
+    font-weight: 500;
+}
+
 .button {
     margin-left: 12px;
     text-align: right;
