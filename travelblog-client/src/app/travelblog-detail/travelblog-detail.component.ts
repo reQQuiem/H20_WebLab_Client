@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵɵqueryRefresh } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BlogEntry } from '../blog-entry';
 import { Travelblog } from '../travelblog';
@@ -13,12 +13,25 @@ export class TravelblogDetailComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, private travelblogService: TravelblogService) { }
 
-  blog: Travelblog;
+  _blog: Travelblog;
+  public get blog() {
+    return this._blog;
+  }
+  public set blog(value: Travelblog) {
+    this._blog = value;
+    this.refresh();
+  }
+
+
   width: number = 400;
-  canSave: boolean = false;
+  editable: boolean = false;
 
   ngOnInit(): void {
     this.getTravelblog();
+  }
+
+  refresh() {
+    this.editable = (localStorage.getItem('name') === this.blog.owner)
   }
 
   getTravelblog() {

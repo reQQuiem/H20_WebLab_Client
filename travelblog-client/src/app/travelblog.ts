@@ -9,6 +9,7 @@ export class Travelblog {
     arrival: Date;
     abstract: string;
     entries: BlogEntry[];
+    owner: string;
 
     constructor(entries: BlogEntry[] = []) {
         this.entries = entries;

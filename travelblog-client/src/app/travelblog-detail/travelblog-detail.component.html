@@ -69,11 +69,25 @@
     <!-- Buttons -->
     <div class="row">
         <div>
-            <button mat-raised-button color="primary" (click)="addBlogEntry()">Blog-Eintrag hinzufügen</button>
+            <button mat-raised-button color="primary" (click)="addBlogEntry()" [disabled]="!editable">Blog-Eintrag hinzufügen</button>
         </div>
         <div class="button-row">
-            <button mat-raised-button class="button" color="primary" (click)="save()">Speichern</button>
-            <button mat-raised-button class="button" color="primary" (click)="delete()">Löschen</button>
+            <button
+                mat-raised-button
+                class="button"
+                color="primary"
+                (click)="save()"
+                [disabled]="!editable && blog.title && blog.destination">
+                Speichern
+            </button>
+            <button
+                mat-raised-button
+                class="button"
+                color="primary"
+                (click)="delete()"
+                [disabled]="!editable">
+                Löschen
+            </button>
         </div>
     </div>
 
