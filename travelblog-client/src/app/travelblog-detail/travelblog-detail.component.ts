@@ -1,4 +1,4 @@
-import { Component, OnInit, ɵɵqueryRefresh } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BlogEntry } from '../blog-entry';
 import { Travelblog } from '../travelblog';
@@ -25,6 +25,7 @@ export class TravelblogDetailComponent implements OnInit {
 
   width: number = 400;
   editable: boolean = false;
+  saveable: boolean = false;
 
   ngOnInit(): void {
     this.getTravelblog();
@@ -32,6 +33,8 @@ export class TravelblogDetailComponent implements OnInit {
 
   refresh() {
     this.editable = (localStorage.getItem('name') === this.blog.owner)
+    if (this.blog.title && this.blog.destination)
+      this.saveable = this.editable;
   }
 
   getTravelblog() {
