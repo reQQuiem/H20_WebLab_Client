@@ -15,6 +15,7 @@ export class TravelblogDetailComponent implements OnInit {
 
   blog: Travelblog;
   width: number = 400;
+  canSave: boolean = false;
 
   ngOnInit(): void {
     this.getTravelblog();
@@ -40,6 +41,6 @@ export class TravelblogDetailComponent implements OnInit {
   }
 
   delete() {
-    this.travelblogService.delete(this.blog._id).subscribe(_ => this.router.navigate(['/my-blogs']));
+    this.travelblogService.delete(this.blog._id).subscribe(_ => this.router.navigateByUrl('/my-blogs'));
   }
 }

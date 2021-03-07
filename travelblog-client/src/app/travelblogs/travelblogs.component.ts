@@ -25,6 +25,6 @@ export class TravelblogsComponent implements OnInit {
   }
 
   navigate(blog: Travelblog) {
-    this.router.navigate([`/travelblog/${blog._id}`])
+    this.router.navigateByUrl(`/travelblog/${blog._id}`)
   }
 }
